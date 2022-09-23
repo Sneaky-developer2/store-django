@@ -15,12 +15,8 @@
     {% else %}
     <h1>Hello world</h1>
     {% endif %}
-    <ul>
-        {% for product in products %}
-        <li>{{ product.title }} - {{ product.collection.title }}</li>
 
-        {% endfor %}
-    </ul>
+    {{products}}
 
 
 </body>
