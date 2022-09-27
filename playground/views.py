@@ -1,22 +1,57 @@
 from django.shortcuts import render
-from django.contrib.contenttypes.models import ContentType
+from django.db import connection
 
+# from django.db import transaction
 # from django.db.models import Q, F
 # from django.db.models.aggregates import Count, Max, Min, Avg, Sum
 # from django.db.models import Value, F, Func, Count, ExpressionWrapper
 # from django.db.models.functions import Concat
+# from django.contrib.contenttypes.models import ContentType
 
-from store.models import Collection, Customer, Order, OrderItem, Product
+from store.models import *
 from tags.models import TaggedItem
 
 
 def say_hello(request):
-    queryset = Product.objects.all()
-    queryset[0]
-    list(queryset)
-
+    
 
     return render(request, 'hello.html', {'name': 'Jalal'})
+
+
+# with connection.cursor() as cursor:
+#         cursor.execute()
+
+# with transaction.atomic():
+#         order  = Order()
+#         order.customer_id = 1
+#         order.save()
+
+#         item = OrderItem()
+#         item.order = order
+#         item.product_id = -1
+#         item.quantity = 1
+#         item.unit_price = 10
+#         item.save()
+
+
+# collection = Collection(pk=11)
+# collection.delete()
+
+# collection.objects.filter(id__gt=5).delete()
+
+# collection = Collection.objects.get(pk=11)
+# collection.featured_product = None
+# collection.save()
+
+# Collection.objects.filter(pk=11).update(featured_product=None)
+
+
+# collection = Collection.objects.create(name='a', featured_product_id=1)
+
+
+#  queryset = Product.objects.all()
+#     queryset[0]
+#     list(queryset)
 
 
 # queryset = TaggedItem.objects.get_tags_for(Product, 1)
