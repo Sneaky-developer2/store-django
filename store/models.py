@@ -57,6 +57,8 @@ class Customer(models.Model):
     # order_st
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
+    class Meta:
+        ordering = ['first_name', 'last_name']
     
 
 class Order(models.Model):
